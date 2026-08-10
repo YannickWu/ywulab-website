@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wu Research Group</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <header class="site-header">
+
+        <a class="logo" href="index.html">
+            WU LAB
+        </a>
+
+        <button class="menu-button">
+    ☰
+        </button>
+
+    <nav class="nav-links">
+
+        <a class="active" href="index.html">Home</a>
+
+        <a href="research.html">Research</a>
+
+        <a href="people.html">People</a>
+
+        <a href="publications.html">Publications</a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="alumni.html">Alumni</a>
+
+        <a href="news.html">News</a>
+
+        <a href="join.html">Join Us</a>
+
+    </nav>
+
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <p class="hero-label">
+               ADVANCED MATERIALS · BIOELECTRONICS · INTELLIGENT HEALTHCARE
+            </p>
+
+
+            <h1>
+                Materials that sense.<br>
+                Electronics that interface.
+            </h1>
+
+
+            <p class="hero-description">
+
+                From emerging materials and physical phenomena to flexible electronics and intelligent healthcare.
+
+            </p>
+
+
+            <a class="hero-button" href="#">
+                Explore Our Research
+            </a>
+
+        </div>
+
+
+
+        <div class="hero-carousel">
+
+            <div class="carousel-slide active">
+                <img src="images/h1.jpg" alt="Research image 1">
+            </div>
+
+            <div class="carousel-slide">
+                <img src="images/h2.jpg" alt="Research image 2">
+            </div>
+
+            <div class="carousel-slide">
+                <img src="images/h3.jpg" alt="Research image 3">
+            </div>
+
+            <div class="carousel-slide">
+                <img src="images/h4.jpg" alt="Research image 4">
+            </div>
+
+            <!-- 左右箭头 -->
+            <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+            <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
+
+            <!-- 底部圆点 -->
+            <div class="carousel-dots"></div>
+
+        </div>
+
+
+    </section>
+    
+    <!-- Research Section -->
+    <section class="research-section">
+        
+        <div class="section-heading">
+
+            <p class="section-label">
+                Our Research
+            </p>
+
+            <h2>
+                Research at the intersection of materials,
+                electronics, and medicine.
+            </h2>
+
+            <p class="section-description">
+                Our research spans the discovery of emerging ferroic and intelligent materials, the engineering of flexible and biointegrated electronic devices, and the development of AI-enabled solutions for biomedical applications.
+            </p>
+
+        </div>
+
+<div class="research-grid">
+
+    <article class="research-card">
+
+        <div class="research-card-media">
+            <img
+                src="images/r1.jpg"
+                alt="Ferroic and intelligent materials research"
+            >
+        </div>
+
+        <div class="research-card-content">
+
+            <h3>Ferroic & Intelligent Materials</h3>
+
+            <p>
+                Discovering emerging ferroic materials and novel electrical,
+                magnetic, and coupled physical properties.
+            </p>
+
+            <a class="text-link" href="research.html#ferroic-materials">
+                Learn more →
+            </a>
+        </div>
+
+    </article>
+
+
+    <article class="research-card">
+
+        <div class="research-card-media">
+            <img
+                src="images/r2.jpg"
+                alt="Flexible and biointegrated electronics research"
+            >
+        </div>
+
+        <div class="research-card-content">
+
+            <h3>Flexible & Biointegrated Electronics</h3>
+
+            <p>
+                Engineering flexible, wearable, and implantable devices
+                from advanced functional materials.
+            </p>
+
+            <a class="text-link" href="research.html#flexible-bioelectronics">
+                Learn more →
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <article class="research-card">
+
+        <div class="research-card-media">
+            <img
+                src="images/r3.jpg"
+                alt="Intelligent biomedical solutions research"
+            >
+        </div>
+
+        <div class="research-card-content">
+
+            <h3>Advanced Biomedical Solutions</h3>
+
+            <p>
+                Integrating advanced devices with artificial intelligence
+                to create application-specific solutions for biomedical
+                sensing and healthcare.
+            </p>
+
+            <a class="text-link" href="research.html#biomedical-solutions">
+                Learn more →
+            </a>
+
+        </div>
+
+    </article>
+
+</div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+
+    <script>
+    const slides = document.querySelectorAll(".carousel-slide");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+    const dotsContainer = document.querySelector(".carousel-dots");
+
+    let currentSlide = 0;
+
+    // 创建圆点
+    slides.forEach((slide, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("carousel-dot");
+
+        if (index === 0) {
+            dot.classList.add("active");
+        }
+
+        dot.addEventListener("click", () => {
+            showSlide(index);
+        });
+
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".carousel-dot");
+
+    function showSlide(index) {
+
+        slides[currentSlide].classList.remove("active");
+        dots[currentSlide].classList.remove("active");
+
+        currentSlide = index;
+
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+
+        slides[currentSlide].classList.add("active");
+        dots[currentSlide].classList.add("active");
+    }
+
+    // 下一张
+    nextBtn.addEventListener("click", () => {
+        showSlide(currentSlide + 1);
+    });
+
+    // 上一张
+    prevBtn.addEventListener("click", () => {
+        showSlide(currentSlide - 1);
+    });
+
+    setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 4500);
+    </script>
+
+</body>
+
+
+</html>
